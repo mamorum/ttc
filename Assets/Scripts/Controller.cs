@@ -4,30 +4,54 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour {
   public Cell[] cells;
-  internal readonly int empty = 0, x = 1, o = 2;
-  int[] board; int turn;
+  public Msg msg;
+  internal readonly string
+    none = "", x = "X", o = "O";
+  internal string turn;
+  internal bool playing;
+  int click;
   void Start() {
     for (int i = 0; i < cells.Length; i++) {
-      cells[i].Init(this, i);
+      cells[i].Init(this);
     }
-    board = new int[cells.Length];
-    ResetGame();
+    Play();
   }
-  void ResetGame() {
-    for (int i = 0; i < board.Length; i++) {
-      board[i] = empty;
+  void Play() {
+    for (int i = 0; i < cells.Length; i++) {
+      cells[i].txt.text = none;
     }
+    playing = true;
+    click = 0;
     turn = x;
   }
-  internal void OnClick(Cell c) {
-    if (board[c.id] != empty) return;
-    board[c.id] = turn;
-    c.img.color = c.selected;
-    if (turn == x) c.txt.text = "X";
-    else c.txt.text = "O";
+  bool Eq(int i, int ii, int iii) {
+    return cells[iii].txt.text == turn
+      && cells[ii].txt.text == turn
+      && cells[i].txt.text == turn;
   }
-  internal void ChangeSide() {
-    // TODO: 終了判定
+  bool IsWin() {
+    return
+      Eq(0, 1, 2) || Eq(3, 4, 5) || Eq(6, 7, 8) ||
+      Eq(0, 3, 6) || Eq(1, 4, 7) || Eq(2, 5, 8) ||
+      Eq(0, 4, 8) || Eq(2, 4, 6);
+  }
+  bool IsDraw() {
+    return click == cells.Length;
+  }
+  void Win() {
+    msg.On(turn + " wins.");
+    playing = false;
+  }
+  void Draw() {
+    msg.On("It's a draw.");
+    playing = false;
+  }
+  internal void ChangeTurn() {
+    click++;
+    //-> judge
+    if (IsWin()) { Win(); return; }
+    if (IsDraw()) { Draw(); return; }
+    //-> change
     if (turn == x) turn = o;
     else turn = x;
   }
