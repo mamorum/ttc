@@ -5,9 +5,12 @@ using UnityEngine;
 public class Controller : MonoBehaviour {
   public Cell[] cells;
   public Restart restart;
-  public Msg msg;
+  public End end;
   internal readonly string
     none = "", x = "X", o = "O";
+  internal readonly string
+    xwin = "X wins.", owin = "O wins",
+    draw = "It's a draw.";
   internal string turn;
   internal bool playing;
   internal int click;
@@ -22,7 +25,7 @@ public class Controller : MonoBehaviour {
     for (int i = 0; i < cells.Length; i++) {
       cells[i].UnClick();
     }
-    msg.gameObject.SetActive(false);
+    end.gameObject.SetActive(false);
     // TODO: 先手後手の選択
     playing = true;
     click = 0;
@@ -34,7 +37,7 @@ public class Controller : MonoBehaviour {
       && cells[i].txt.text == turn;
   }
   bool IsWin() {
-    return
+    return // vertical:3, horizontal:3, diagonal:2
       Eq(0, 1, 2) || Eq(3, 4, 5) || Eq(6, 7, 8) ||
       Eq(0, 3, 6) || Eq(1, 4, 7) || Eq(2, 5, 8) ||
       Eq(0, 4, 8) || Eq(2, 4, 6);
@@ -43,11 +46,12 @@ public class Controller : MonoBehaviour {
     return click == cells.Length;
   }
   void Win() {
-    msg.On(turn + " wins.");
+    if (turn == x) end.Show(xwin);
+    else end.Show(owin);
     playing = false;
   }
   void Draw() {
-    msg.On("It's a draw.");
+    end.Show(draw);
     playing = false;
   }
   internal void ChangeTurn() {
