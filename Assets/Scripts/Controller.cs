@@ -4,22 +4,26 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour {
   public Cell[] cells;
+  public Restart restart;
   public Msg msg;
   internal readonly string
     none = "", x = "X", o = "O";
   internal string turn;
   internal bool playing;
-  int click;
+  internal int click;
   void Start() {
     for (int i = 0; i < cells.Length; i++) {
       cells[i].Init(this);
     }
+    restart.c = this;
     Play();
   }
-  void Play() {
+  internal void Play() {
     for (int i = 0; i < cells.Length; i++) {
-      cells[i].txt.text = none;
+      cells[i].UnClick();
     }
+    msg.gameObject.SetActive(false);
+    // TODO: 先手後手の選択
     playing = true;
     click = 0;
     turn = x;

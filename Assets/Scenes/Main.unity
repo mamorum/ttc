@@ -754,9 +754,9 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1651313243}
+  - {fileID: 1602356614}
   - {fileID: 1768929561}
   - {fileID: 2038553609}
-  - {fileID: 1602356614}
   - {fileID: 248501860}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -819,6 +819,7 @@ MonoBehaviour:
   - {fileID: 3844408066609746623}
   - {fileID: 3844408067800712707}
   - {fileID: 3844408067787687081}
+  restart: {fileID: 1768929565}
   msg: {fileID: 248501863}
 --- !u!1 &906854255
 GameObject:
@@ -1345,7 +1346,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   img: {fileID: 1429616870}
   txt: {fileID: 975875178}
-  selected: {r: 0.24, g: 0.24, b: 0.24, a: 1}
+  click: {r: 0.24, g: 0.24, b: 0.24, a: 1}
 --- !u!1 &1460460530
 GameObject:
   m_ObjectHideFlags: 0
@@ -1527,7 +1528,7 @@ RectTransform:
   - {fileID: 1800859716}
   - {fileID: 1745624613}
   m_Father: {fileID: 843899325}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1816,6 +1817,7 @@ GameObject:
   - component: {fileID: 1768929564}
   - component: {fileID: 1768929563}
   - component: {fileID: 1768929562}
+  - component: {fileID: 1768929565}
   m_Layer: 5
   m_Name: Restart
   m_TagString: Untagged
@@ -1836,11 +1838,11 @@ RectTransform:
   m_Children:
   - {fileID: 485924023}
   m_Father: {fileID: 843899325}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -635.1, y: 540.15}
+  m_AnchoredPosition: {x: -635, y: 540.25}
   m_SizeDelta: {x: 212, y: 212}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1768929562
@@ -1883,7 +1885,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1768929565}
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -1929,6 +1931,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1768929560}
   m_CullTransparentMesh: 0
+--- !u!114 &1768929565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768929560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40c4e9ac44ab41b4e83c967e09d38dd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1800859715
 GameObject:
   m_ObjectHideFlags: 0
@@ -2018,6 +2032,7 @@ GameObject:
   - component: {fileID: 2038553612}
   - component: {fileID: 2038553611}
   - component: {fileID: 2038553610}
+  - component: {fileID: 2038553613}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -2038,11 +2053,11 @@ RectTransform:
   m_Children:
   - {fileID: 774449305}
   m_Father: {fileID: 843899325}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -635.1, y: 324.15}
+  m_AnchoredPosition: {x: -635, y: 324.25}
   m_SizeDelta: {x: 212, y: 212}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2038553610
@@ -2085,7 +2100,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2038553613}
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -2131,6 +2146,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2038553608}
   m_CullTransparentMesh: 0
+--- !u!114 &2038553613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038553608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b4f143a20669a74c8d1912e1149ab7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &3844408066296320040
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2502,7 +2529,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   img: {fileID: 3844408066609746609}
   txt: {fileID: 3844408068036560445}
-  selected: {r: 0.24, g: 0.24, b: 0.24, a: 1}
+  click: {r: 0.24, g: 0.24, b: 0.24, a: 1}
 --- !u!114 &3844408066620349264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2643,7 +2670,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   img: {fileID: 3844408066620349264}
   txt: {fileID: 3844408068013150172}
-  selected: {r: 0.24, g: 0.24, b: 0.24, a: 1}
+  click: {r: 0.24, g: 0.24, b: 0.24, a: 1}
 --- !u!114 &3844408066795625109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2658,7 +2685,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   img: {fileID: 3844408066795625115}
   txt: {fileID: 3844408067313847831}
-  selected: {r: 0.24, g: 0.24, b: 0.24, a: 1}
+  click: {r: 0.24, g: 0.24, b: 0.24, a: 1}
 --- !u!114 &3844408066795625112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2799,7 +2826,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   img: {fileID: 3844408066916701695}
   txt: {fileID: 3844408067704471923}
-  selected: {r: 0.24, g: 0.24, b: 0.24, a: 1}
+  click: {r: 0.24, g: 0.24, b: 0.24, a: 1}
 --- !u!1 &3844408066916701690
 GameObject:
   m_ObjectHideFlags: 0
@@ -2940,7 +2967,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   img: {fileID: 3844408067161345945}
   txt: {fileID: 3844408067480410901}
-  selected: {r: 0.24, g: 0.24, b: 0.24, a: 1}
+  click: {r: 0.24, g: 0.24, b: 0.24, a: 1}
 --- !u!222 &3844408067161345944
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3438,7 +3465,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   img: {fileID: 3844408067753929348}
   txt: {fileID: 3844408066326068744}
-  selected: {r: 0.24, g: 0.24, b: 0.24, a: 1}
+  click: {r: 0.24, g: 0.24, b: 0.24, a: 1}
 --- !u!1 &3844408067787687074
 GameObject:
   m_ObjectHideFlags: 0
@@ -3579,7 +3606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   img: {fileID: 3844408067787687079}
   txt: {fileID: 3844408066296320043}
-  selected: {r: 0.24, g: 0.24, b: 0.24, a: 1}
+  click: {r: 0.24, g: 0.24, b: 0.24, a: 1}
 --- !u!114 &3844408067800712707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3594,7 +3621,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   img: {fileID: 3844408067800712717}
   txt: {fileID: 3844408066308362881}
-  selected: {r: 0.24, g: 0.24, b: 0.24, a: 1}
+  click: {r: 0.24, g: 0.24, b: 0.24, a: 1}
 --- !u!1 &3844408067800712712
 GameObject:
   m_ObjectHideFlags: 0
