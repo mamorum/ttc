@@ -18,6 +18,7 @@ public class Cell : MonoBehaviour {
   public void OnClick() {
     if (txt.text != c.none) return;
     if (!c.playing) return;
+    c.unclick.Remove(this);
     img.color = click;
     txt.text = c.turn;
     c.ChangeTurn();

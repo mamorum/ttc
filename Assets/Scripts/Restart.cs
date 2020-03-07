@@ -4,7 +4,5 @@ using UnityEngine;
 
 public class Restart : MonoBehaviour {
   internal Controller c;
-  public void OnClick() {
-    c.Play();
-  }
+  public void OnClick() { c.Restart(); }
 }

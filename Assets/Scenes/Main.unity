@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 99712686}
   - component: {fileID: 99712685}
   m_Layer: 5
-  m_Name: Navigation
+  m_Name: Navi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 248501862}
   - component: {fileID: 248501861}
   m_Layer: 5
-  m_Name: Judge
+  m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 436730114}
   - component: {fileID: 436730112}
   m_Layer: 5
-  m_Name: End
+  m_Name: Judgement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -309,7 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02df2748f63600349941a1c0906f91ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  judge: {fileID: 1621531374}
+  txt: {fileID: 1621531374}
 --- !u!222 &436730114
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -329,8 +329,9 @@ GameObject:
   - component: {fileID: 442551834}
   - component: {fileID: 442551837}
   - component: {fileID: 442551836}
+  - component: {fileID: 442551835}
   m_Layer: 5
-  m_Name: Start
+  m_Name: Which
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -358,6 +359,18 @@ RectTransform:
   m_AnchoredPosition: {x: -160, y: 0}
   m_SizeDelta: {x: 438, y: 340}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &442551835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442551833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43710f09ef4c90f4f89383f7dc1835b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &442551836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -941,7 +954,8 @@ MonoBehaviour:
   - {fileID: 3844408067800712707}
   - {fileID: 3844408067787687081}
   restart: {fileID: 1768929565}
-  end: {fileID: 436730112}
+  which: {fileID: 442551835}
+  judge: {fileID: 436730112}
 --- !u!1 &906854255
 GameObject:
   m_ObjectHideFlags: 0
@@ -1186,7 +1200,7 @@ GameObject:
   - component: {fileID: 1002205725}
   - component: {fileID: 1002205724}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: O
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1251,7 +1265,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1002205725}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 442551835}
+        m_MethodName: OnClickO
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1002205725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1299,7 +1324,7 @@ GameObject:
   - component: {fileID: 1014568920}
   - component: {fileID: 1014568919}
   m_Layer: 5
-  m_Name: Txt
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1738,7 +1763,7 @@ GameObject:
   - component: {fileID: 1468525839}
   - component: {fileID: 1468525838}
   m_Layer: 5
-  m_Name: Button
+  m_Name: X
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1803,7 +1828,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1468525839}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 442551835}
+        m_MethodName: OnClickX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1468525839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2005,7 +2041,7 @@ GameObject:
   - component: {fileID: 1602356616}
   - component: {fileID: 1602356615}
   m_Layer: 5
-  m_Name: Turn
+  m_Name: Status
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2085,7 +2121,7 @@ GameObject:
   - component: {fileID: 1621531375}
   - component: {fileID: 1621531374}
   m_Layer: 5
-  m_Name: Txt
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2162,7 +2198,7 @@ GameObject:
   - component: {fileID: 1643067581}
   - component: {fileID: 1643067580}
   m_Layer: 5
-  m_Name: Txt
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

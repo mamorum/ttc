@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class End : MonoBehaviour {
-  public Text judge;
+public class Judgement : MonoBehaviour {
+  public Text txt;
   internal void Show(string msg) {
-    judge.text = msg;
+    txt.text = msg;
     gameObject.SetActive(true);
   }
 }
