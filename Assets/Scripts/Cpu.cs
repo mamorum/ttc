@@ -8,6 +8,6 @@ public class Cpu {
     int i = Random.Range(
       0, c.unclick.Count
     );
-    c.unclick[i].OnClick();
+    c.unclick[i].Click();
   }
 }

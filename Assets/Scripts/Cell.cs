@@ -15,12 +15,16 @@ public class Cell : MonoBehaviour {
     txt.text = c.none;
     img.color = unclick;
   }
-  public void OnClick() {
-    if (txt.text != c.none) return;
-    if (!c.playing) return;
+  internal void Click() {
     c.unclick.Remove(this);
     img.color = click;
     txt.text = c.turn;
     c.ChangeTurn();
+  }
+  public void OnClick() {
+    if (txt.text != c.none) return;
+    if (!c.playing) return;
+    if (!c.player) return;
+    Click();
   }
 }

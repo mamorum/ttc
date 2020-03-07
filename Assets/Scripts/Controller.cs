@@ -12,15 +12,16 @@ public class Controller : MonoBehaviour {
   internal readonly string
     xwin = "X wins.", owin = "O wins",
     draw = "It's a draw.";
-  internal string turn; internal bool playing;
-  internal bool isCpu; Cpu cpu = new Cpu();
+  internal string turn;
+  internal bool playing; internal bool player;
   internal List<Cell> unclick = new List<Cell>();
-  int frm; int wait = 20;
+  int wait; readonly int _wait = 20;
+  Cpu cpu = new Cpu();
   void Update() {
     if (!playing) return;
-    if (!isCpu) return;
-    if (frm == wait) cpu.Click();
-    else frm++;
+    if (player) return;
+    if (wait == 0) cpu.Click();
+    else wait--;
   }
   void Start() {
     playing = false;
@@ -40,15 +41,15 @@ public class Controller : MonoBehaviour {
       cells[i].UnClick();
     }
     turn = x;
-    frm = 0;
+    wait = _wait;
     //-> message
     judge.gameObject.SetActive(false);
     which.gameObject.SetActive(true);
   }
   internal void Play(string side) {
     playing = true;
-    if (side == x) isCpu = false;
-    else isCpu = true;
+    if (side == x) player = true;
+    else player = false;
   }
   bool Eq(int i, int ii, int iii) {
     return cells[iii].txt.text == turn
@@ -81,7 +82,7 @@ public class Controller : MonoBehaviour {
     if (turn == x) turn = o;
     else turn = x;
     //-> cpu
-    isCpu = !isCpu;
-    if (isCpu) frm = 0;
+    player = !player;
+    if (!player) wait = _wait;
   }
 }
