@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour {
   public Cell[] cells;
-  public Restart restart;
-  public Which which;
-  public Judgement judge;
+  public Status status; public Restart restart;
+  public Which which; public Judgement judge;
   internal readonly string
     none = "", x = "X", o = "O";
   internal readonly string
@@ -15,7 +14,7 @@ public class Controller : MonoBehaviour {
   internal string turn;
   internal bool playing; internal bool player;
   internal List<Cell> unclick = new List<Cell>();
-  int wait; readonly int _wait = 20;
+  readonly int _wait = 20; int wait;
   Cpu cpu = new Cpu();
   void Update() {
     if (!playing) return;
@@ -28,6 +27,7 @@ public class Controller : MonoBehaviour {
     for (int i = 0; i < cells.Length; i++) {
       cells[i].Init(this);
     }
+    status.Init();
     restart.c = this;
     which.c = this;
     cpu.c = this;
@@ -43,6 +43,7 @@ public class Controller : MonoBehaviour {
     turn = x;
     wait = _wait;
     //-> message
+    status.gameObject.SetActive(false);
     judge.gameObject.SetActive(false);
     which.gameObject.SetActive(true);
   }
@@ -50,6 +51,7 @@ public class Controller : MonoBehaviour {
     playing = true;
     if (side == x) player = true;
     else player = false;
+    status.First(player);
   }
   bool Eq(int i, int ii, int iii) {
     return cells[iii].txt.text == turn
@@ -81,6 +83,7 @@ public class Controller : MonoBehaviour {
     //-> change
     if (turn == x) turn = o;
     else turn = x;
+    status.Change();
     //-> cpu
     player = !player;
     if (!player) wait = _wait;

@@ -654,7 +654,7 @@ GameObject:
   - component: {fileID: 602690004}
   - component: {fileID: 602690003}
   m_Layer: 5
-  m_Name: Selector0
+  m_Name: FirstArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -953,6 +953,7 @@ MonoBehaviour:
   - {fileID: 3844408066609746623}
   - {fileID: 3844408067800712707}
   - {fileID: 3844408067787687081}
+  status: {fileID: 1602356617}
   restart: {fileID: 1768929565}
   which: {fileID: 442551835}
   judge: {fileID: 436730112}
@@ -1964,7 +1965,7 @@ GameObject:
   - component: {fileID: 1532709533}
   - component: {fileID: 1532709532}
   m_Layer: 5
-  m_Name: Selector1
+  m_Name: SecondArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2040,6 +2041,7 @@ GameObject:
   - component: {fileID: 1602356614}
   - component: {fileID: 1602356616}
   - component: {fileID: 1602356615}
+  - component: {fileID: 1602356617}
   m_Layer: 5
   m_Name: Status
   m_TagString: Untagged
@@ -2109,6 +2111,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1602356613}
   m_CullTransparentMesh: 0
+--- !u!114 &1602356617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602356613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6331031b9753ccf4888c26737116cc87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrows:
+  - {fileID: 602690001}
+  - {fileID: 1532709530}
+  players:
+  - {fileID: 1800859717}
+  - {fileID: 1745624614}
 --- !u!1 &1621531372
 GameObject:
   m_ObjectHideFlags: 0
@@ -2356,7 +2376,7 @@ GameObject:
   - component: {fileID: 1745624615}
   - component: {fileID: 1745624614}
   m_Layer: 5
-  m_Name: Player1
+  m_Name: SecondPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2571,7 +2591,7 @@ GameObject:
   - component: {fileID: 1800859718}
   - component: {fileID: 1800859717}
   m_Layer: 5
-  m_Name: Player0
+  m_Name: FirstPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2627,7 +2647,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Player
+  m_Text: YOU
 --- !u!222 &1800859718
 CanvasRenderer:
   m_ObjectHideFlags: 0
