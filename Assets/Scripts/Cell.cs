@@ -22,9 +22,8 @@ public class Cell : MonoBehaviour {
     c.ChangeTurn();
   }
   public void OnClick() {
-    if (txt.text != c.none) return;
-    if (!c.playing) return;
-    if (!c.player) return;
-    Click();
+    if (c.Paused()) return;
+    if (c.cpu.Turn()) return;
+    if (txt.text == c.none) Click();
   }
 }

@@ -7,8 +7,9 @@ public class Status : MonoBehaviour {
   public GameObject[] arrows;
   public Text[] players;
   string player; string cpu;
-  bool first;
-  internal void Init() {
+  bool first; Controller c;
+  internal void Init(Controller c) {
+    this.c = c;
     gameObject.SetActive(false);
     player = players[0].text;
     cpu = players[1].text;
@@ -17,9 +18,9 @@ public class Status : MonoBehaviour {
     players[0].text = first;
     players[1].text = second;
   }
-  internal void First(bool isPlayer) {
+  internal void Cpu(string side) {
     gameObject.SetActive(true);
-    if (isPlayer) Name(player, cpu);
+    if (side == c.o) Name(player, cpu);
     else Name(cpu, player);
     first = true;
     Move();
@@ -28,7 +29,7 @@ public class Status : MonoBehaviour {
     arrows[0].SetActive(first);
     arrows[1].SetActive(!first);
   }
-  internal void Change() {
+  internal void Next() {
     first = !first;
     Move();
   }

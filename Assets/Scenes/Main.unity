@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 436730114}
   - component: {fileID: 436730112}
   m_Layer: 5
-  m_Name: Judgement
+  m_Name: Judge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -331,7 +331,7 @@ GameObject:
   - component: {fileID: 442551836}
   - component: {fileID: 442551835}
   m_Layer: 5
-  m_Name: Which
+  m_Name: Play
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -955,8 +955,10 @@ MonoBehaviour:
   - {fileID: 3844408067787687081}
   status: {fileID: 1602356617}
   restart: {fileID: 1768929565}
+  quit: {fileID: 2038553613}
   which: {fileID: 442551835}
   judge: {fileID: 436730112}
+  canvas: {fileID: 843899324}
 --- !u!1 &906854255
 GameObject:
   m_ObjectHideFlags: 0
