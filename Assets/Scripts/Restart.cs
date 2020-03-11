@@ -16,6 +16,6 @@ public class Restart : MonoBehaviour {
     //-> message
     c.status.gameObject.SetActive(false);
     c.judge.gameObject.SetActive(false);
-    c.which.gameObject.SetActive(true);
+    c.play.gameObject.SetActive(true);
   }
 }

@@ -9,7 +9,7 @@ public class Controller : MonoBehaviour {
   internal readonly Cpu cpu = new Cpu();
   public Cell[] cells; public Status status;
   public Restart restart; public Quit quit;
-  public Play which; public Judge judge;
+  public Play play; public Judge judge;
   public Canvas canvas;
   internal string turn;
   internal List<Cell> unclick = new List<Cell>();
@@ -19,7 +19,7 @@ public class Controller : MonoBehaviour {
       cells[i].Init(this);
     }    
     restart.c = this; quit.c = this;
-    which.c = this; judge.c = this;
+    play.c = this; judge.c = this;
     restart.Click();
   }
   void Update() {
@@ -28,7 +28,7 @@ public class Controller : MonoBehaviour {
   }
   internal bool Paused() {
     return judge.gameObject.activeSelf
-      || which.gameObject.activeSelf;
+      || play.gameObject.activeSelf;
   }
   internal void ChangeTurn() {
     if (judge.Judged()) return;
