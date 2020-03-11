@@ -956,7 +956,7 @@ MonoBehaviour:
   status: {fileID: 1602356617}
   restart: {fileID: 1768929565}
   quit: {fileID: 2038553613}
-  which: {fileID: 442551835}
+  play: {fileID: 442551835}
   judge: {fileID: 436730112}
   canvas: {fileID: 843899324}
 --- !u!1 &906854255
